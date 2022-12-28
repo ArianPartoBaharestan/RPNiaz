@@ -1,0 +1,9 @@
+Django==4.1.2
+djangorestframework
+django-filter
+django-cors-headers
+django-import-export
+djangorestframework-simplejwt
+dj-rest-auth
+gunicorn
+Pillow
