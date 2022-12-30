@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'authentication',
     'landing',
+    'category',
 ]
 
 MIDDLEWARE = [
