@@ -2,9 +2,11 @@ from django.db import models
 from authentication.models import User
 import random
 import os
-# This part for Product DataBase
+from category.models import Category , Brand
 from django.utils.safestring import mark_safe
-# from mptt.models import MPTTModel
+
+
+# This part for Product DataBase
 
 def get_filename_ext(filepath):
     base_name = os.path.basename(filepath)
@@ -61,8 +63,8 @@ class Product(models.Model):
         ('Old' , 'کهنه') ,
     )
 
-    # category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True, verbose_name='دسته')
-    # brand = models.ForeignKey('Brand', on_delete=models.SET_NULL, blank=True, null=True, verbose_name='برند')
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, verbose_name='دسته')
+    brand = models.ForeignKey(Brand, on_delete=models.SET_NULL, blank=True, null=True, verbose_name='برند')
     title = models.CharField(max_length=200, verbose_name='عنوان فارسی')
     title_eng = models.CharField(max_length=150, blank=True, null=True, verbose_name='عنوان انگلیسی')
     keyword = models.CharField(max_length=250, verbose_name='کلمه کلیدی')

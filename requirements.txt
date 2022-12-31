@@ -7,3 +7,8 @@ djangorestframework-simplejwt
 dj-rest-auth
 gunicorn
 Pillow
+
+
+        "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY3MzEwNTMyMCwiaWF0IjoxNjcyNTAwNTIwLCJqdGkiOiJkYmEyMmFhYzc5ODc0NDNmODNmNWZlZjM4MzNhMTg5NiIsInVzZXJfaWQiOjJ9.n7QZYyHU6L4C0i4XWgSxTxyIhK2S07P5_QMqirRnUTA",
+        "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcyNTA3NzIwLCJpYXQiOjE2NzI1MDA1MjAsImp0aSI6ImJjZWQ2YTE3ZTQ2YTQwZTc5ZGVhMGY2MWEyNWNkNzJmIiwidXNlcl9pZCI6Mn0.EgMysqr8gpuQXqIBE6rgt1k10I9EljkAZxFj84zavHg"
+    },
