@@ -7,4 +7,3 @@ djangorestframework-simplejwt
 dj-rest-auth
 gunicorn
 Pillow
-
