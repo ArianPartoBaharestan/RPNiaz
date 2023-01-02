@@ -6,10 +6,16 @@ from .permissions import IsOwner , IsOwnerOrReadOnly
 from rest_framework.views import APIView , Response 
 from rest_framework import status 
 from django.http import Http404 , HttpResponseNotFound
-# Product Views
 
-class ListProductsView(ListAPIView):
+# Product Views
+class ListActiveProductsView(ListAPIView):
     queryset = Product.objects.filter(status = 'True')
+    serializer_class = ListProductSerializer
+    permission_classes = (IsAuthenticated , )
+
+
+class ListAllProductsView(ListAPIView):
+    queryset = Product.objects.all()
     serializer_class = ListProductSerializer
     permission_classes = (IsAuthenticated , )
 
@@ -17,30 +23,32 @@ class ListProductsView(ListAPIView):
 class CreateProductView(CreateAPIView):
     queryset = Product.objects.all()
     serializer_class = CreateProductSerializer
-    permission_classes = (IsOwner , )
-# 
+    permission_classes = (IsAuthenticated , )
+
 class DetailProductView(RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = DetailProductSerializer
-    permission_classes = (IsOwnerOrReadOnly , )
+    permission_classes = (IsOwnerOrReadOnly , IsAuthenticated )
 
 class ListImageView(APIView):
     def get(self , request , product):
-        print(product)
         queryset = Images.objects.filter(product__title = product)
         serializer = ListImageSerializer(queryset , many = True)
         return Response(data = serializer.data)
+
 class CreateImageView(CreateAPIView):
     queryset = Images.objects.all()
     serializer_class = CreateImageSerializer
 
 class DeleteImageView(APIView):
-    
+    permission_classes = (IsOwner , )
+
     def get_object(self , pk):
         try:
             return Images.objects.get(id = pk)
         except Images.DoesNotExist:
             raise Http404   
+
     def delete(self, request , pk):
         image = self.get_object(pk=pk)
         image.delete()

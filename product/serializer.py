@@ -6,9 +6,13 @@ from category.models import Category , Brand
 
 class CategoryDetailSerializer(serializers.ModelSerializer):
     def get_parent(self , obj):
-        return (obj.parent.title , obj.parent.parent)
+        try:
+            return (obj.parent.title , obj.parent.parent)
+        except:
+            return 'No parrent'
     parent = serializers.SerializerMethodField(method_name= 'get_parent')
     class Meta :
+        
         model = Category
         fields = ('title' , 'parent' , 'keyword' , 'slug')
 

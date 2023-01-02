@@ -6,8 +6,6 @@ from category.models import Category , Brand
 from django.utils.safestring import mark_safe
 
 
-# This part for Product DataBase
-
 def get_filename_ext(filepath):
     base_name = os.path.basename(filepath)
     name, ext = os.path.splitext(base_name)
@@ -42,12 +40,7 @@ class Images(models.Model):
 
 
 
-# برای آپلود عکس و درست کردن آدرسش
-def upload_image_path(instance, filename):
-    new_id = random.randint(1, 999999)
-    name, ext = get_filename_ext(filename)
-    final_name = f"{new_id}-{instance.title}{ext}"
-    return f"products/{final_name}"
+# This part for Product DataBase
 
 
 class Product(models.Model):
@@ -72,7 +65,7 @@ class Product(models.Model):
     # image = models.ImageField(upload_to=upload_image_path, verbose_name='تصویر')
     price = models.IntegerField(verbose_name='قیمت')
     amount = models.IntegerField(verbose_name='تعداد')
-    status = models.CharField(max_length=50, choices=STATUS, verbose_name='وضعیت')
+    status = models.CharField(max_length=50, choices=STATUS,default= False ,verbose_name='وضعیت')
     product_status = models.CharField(max_length = 50 , choices= TYPE ,verbose_name = "کیفیت کالا" )
     slug = models.SlugField(verbose_name='عبارت لینک', null=False, unique=True, allow_unicode=True, max_length=200)
     creat_at = models.DateTimeField(auto_now_add=True, verbose_name='ایجاده شده در تاریخ')
@@ -84,6 +77,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
+
 
     class Meta:
         verbose_name = 'محصول'

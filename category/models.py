@@ -59,6 +59,8 @@ class Brand(models.Model):
     name = models.CharField(max_length=50, verbose_name='نام برند')
     description = models.CharField(max_length=300, verbose_name='توضیحات')
 
+    def __str__(self) -> str:
+        return self.name
     class Meta:
         verbose_name = 'برند'
         verbose_name_plural = 'دسته‌بندی برند'
