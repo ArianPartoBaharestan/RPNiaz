@@ -1,5 +1,6 @@
 import random
 from django.db import models
+from django.utils.text import slugify
 import os
 from django.urls import reverse
 from mptt.fields import TreeForeignKey
@@ -53,6 +54,15 @@ class Category(MPTTModel):
 
     def category_active(self):
         return self.objects.filter(status=True)
+
+    def save(self, *args, **kwargs):
+        is_slug = bool(Category.objects.filter(slug=self.en_title))
+        if self.slug == '':
+            if is_slug:
+                self.slug = slugify(self.en_title + str(self.id))
+            else:
+                self.slug = slugify(self.en_title)
+        super().save(*args, **kwargs)
 
 
 class Brand(models.Model):

@@ -12,6 +12,7 @@ urlpatterns = [
     path('api/', include('landing.urls')),
     path('api/rest-auth/', include('dj_rest_auth.urls')),
     path('api/category/', include('category.urls')),
+    path('api/location/', include('city.urls')),
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
