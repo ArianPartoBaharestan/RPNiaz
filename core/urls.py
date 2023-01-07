@@ -11,8 +11,7 @@ urlpatterns = [
     path('api/', include('landing.urls')),
     path('api/rest-auth/', include('dj_rest_auth.urls')),
     path('api/', include('category.urls')),
-    path('api/location/', include('city.urls')),
-    path('api/', include('product.urls')),
+    path('api/', include('city.urls')),
     path('api/', include('order.urls')),
 ]
 if settings.DEBUG:

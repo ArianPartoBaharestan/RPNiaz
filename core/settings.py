@@ -42,8 +42,6 @@ INSTALLED_APPS = [
     'landing',
     'category',
     'city',
-    'product',
-    'blog',
     'order',
 ]
 
