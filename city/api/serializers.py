@@ -3,20 +3,14 @@ from city.models import Province, City
 
 
 class CitySerializer(serializers.ModelSerializer):
-    province = serializers.StringRelatedField()
 
     class Meta:
         model = City
-        fields = ['name', 'province']
+        fields = ['name']
 
 
 class ProvinceSerializer(serializers.ModelSerializer):
-    cities = serializers.SlugRelatedField(
-        queryset=City.objects.all(),
-        many=True,
-        slug_field='city',
-
-    )
+    cities = CitySerializer(many=True)
 
     class Meta:
         model = Province

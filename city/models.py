@@ -1,7 +1,8 @@
 from django.db import models
+from category.models import BaseAbstractModel
 
 
-class Province(models.Model):
+class Province(BaseAbstractModel):
     name = models.CharField(max_length=50, verbose_name="نام استان", unique=True)
 
     def __str__(self):
@@ -12,7 +13,7 @@ class Province(models.Model):
         verbose_name_plural = 'استان ها'
 
 
-class City(models.Model):
+class City(BaseAbstractModel):
     name = models.CharField(max_length=50, verbose_name="نام شهر")
     province = models.ForeignKey(Province, on_delete=models.CASCADE, verbose_name="استان", related_name="cities")
 

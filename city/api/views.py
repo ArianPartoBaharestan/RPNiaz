@@ -4,10 +4,10 @@ from rest_framework import generics
 
 
 class ProvinceView(generics.ListAPIView):
-    queryset = Province.objects.all()
+    queryset = Province.objects.prefetch_related('cities').all()
     serializer_class = ProvinceSerializer
 
 
 class CityView(generics.ListAPIView):
-    queryset = City.objects.all()
+    queryset = City.objects.prefetch_related('province').all()
     serializer_class = CitySerializer

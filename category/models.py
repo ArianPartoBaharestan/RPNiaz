@@ -5,6 +5,11 @@ import os
 from django.urls import reverse
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
+import uuid
+
+
+class BaseAbstractModel(models.Model):
+    id = models.UUIDField(primary_key=True, unique=True, default=uuid.uuid4, editable=False)
 
 
 def get_filename_ext(filepath):
@@ -21,7 +26,7 @@ def upload_image_path(instance, filename):
     return f"category/{final_name}"
 
 
-class Category(MPTTModel):
+class Category(MPTTModel,BaseAbstractModel):
     STATUS = (
         ('True', "فعال"),
         ("False", "غیرفعال")
@@ -65,10 +70,13 @@ class Category(MPTTModel):
         super().save(*args, **kwargs)
 
 
-class Brand(models.Model):
+class Brand(BaseAbstractModel):
     name = models.CharField(max_length=50, verbose_name='نام برند')
     description = models.CharField(max_length=300, verbose_name='توضیحات')
 
     class Meta:
         verbose_name = 'برند'
         verbose_name_plural = 'دسته‌بندی برند'
+
+    def __str__(self):
+        return self.name
