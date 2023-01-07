@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'landing',
     'category',
     'city',
-    'order',
 ]
 
 MIDDLEWARE = [
