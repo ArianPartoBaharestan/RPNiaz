@@ -3,8 +3,6 @@ from django.db import models
 from django.utils.text import slugify
 import os
 from django.urls import reverse
-from mptt.fields import TreeForeignKey
-from mptt.models import MPTTModel
 import uuid
 
 
@@ -26,12 +24,12 @@ def upload_image_path(instance, filename):
     return f"category/{final_name}"
 
 
-class Category(MPTTModel,BaseAbstractModel):
+class Category(BaseAbstractModel):
     STATUS = (
         ('True', "فعال"),
         ("False", "غیرفعال")
     )
-    parent = TreeForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.SET_NULL,
+    parent = models.ForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.SET_NULL,
                             verbose_name='دسته‌مادر')
     title = models.CharField(max_length=50, verbose_name='عنوان')
     en_title = models.CharField(max_length=50, verbose_name='عنوان انگلیسی')
@@ -51,8 +49,6 @@ class Category(MPTTModel,BaseAbstractModel):
         verbose_name = 'دسته'
         verbose_name_plural = 'دسته‌بندی‌'
 
-    class MPTTMeta:
-        order_insertion_by = ['title']
 
     def get_absolute_url(self):
         return reverse('product_category_list', kwargs={'slug': self.slug})
