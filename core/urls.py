@@ -11,9 +11,9 @@ urlpatterns = [
     path('api/', include('authentication.urls')),
     path('api/', include('landing.urls')),
     path('api/rest-auth/', include('dj_rest_auth.urls')),
-    path('api/' , include('product.urls')),
+    path('api/' , include('product.api.urls')),
     path('api/' , include('category.urls')),
-    path('api/blog/' , include('blog.urls')),
+    path('api/blog/' , include('blog.api.urls')),
     
 ]
 if settings.DEBUG:

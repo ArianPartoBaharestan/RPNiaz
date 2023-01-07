@@ -1,5 +1,4 @@
 from .models import User
-#from django.http import JsonResponse
 from .serializers import LoginSerializer, RegisterSerializer, UserSerializer, ConfirmationSerializer
 from rest_framework.generics import GenericAPIView
 from rest_framework.decorators import api_view, permission_classes

@@ -4,16 +4,15 @@ from product.models import Product
 from uuid import uuid4
 from django.utils.text import  slugify
 from datetime import datetime
-from product.helper import upload_image_path
+from utils.api.utils import upload_image_path
+from utils.models import AbstracId
 
-class Blog(models.Model):
+class Blog(AbstracId ,models.Model):
     STATUS = (
         ('True' , 'منتشر شده'),
         ('False' , 'در انتظار تایید'),
-        ('Destroy' , 'رد شده'),
     )
     owner = models.ForeignKey(User , on_delete=models.CASCADE , related_name= 'blog')
-    product = models.ForeignKey(Product , on_delete= models.CASCADE , related_name= 'blog')
     title = models.CharField(verbose_name= 'موضوع' , max_length = 200)
     body = models.TextField(verbose_name=  'توضیحات')
     image = models.ImageField(verbose_name='تصویر اگهی' , upload_to= upload_image_path , null= True , blank= True)
@@ -36,12 +35,12 @@ class Blog(models.Model):
         return self.title
 
 
-class Comment(models.Model):
+class Comment(AbstracId , models.Model):
     blog = models.ForeignKey(Blog , on_delete= models.CASCADE , related_name='comments')
     user = models.ForeignKey(User , on_delete= models.CASCADE , related_name= 'comments')
     text = models.TextField(verbose_name='متن')
-    parent = models.ForeignKey('self' , on_delete= models.CASCADE , related_name= 'replies' , null= True , blank= True)
+    parent = models.ForeignKey('self' , on_delete= models.SET_NULL , related_name= 'replies' , null= True , blank= True)
     create_at = models.DateTimeField(verbose_name='زمان ساخت' , auto_now_add=True)
- 
+    published = models.BooleanField(default= False)
     def __str__(self) -> str:
         return self.text[:20]

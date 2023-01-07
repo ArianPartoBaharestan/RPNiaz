@@ -3,34 +3,13 @@ from authentication.models import User
 import random
 import os
 from category.models import Category , Brand
-from django.utils.safestring import mark_safe
-from .helper import upload_image_path 
-
-
-class Images(models.Model):
-    product = models.ForeignKey('Product', on_delete=models.SET_NULL, null=True, related_name='gallery',
-                                verbose_name='محصول')
-    title = models.CharField(max_length=50, blank=True, verbose_name='عنوان')
-    image = models.ImageField(blank=True, upload_to=upload_image_path, verbose_name='تصویر')
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = 'تصویر'
-        verbose_name_plural = 'تصاویر'
-
-    def image_tag(self):
-        return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
-
-    image_tag.short_description = 'تصویر'
-
+from utils.models import AbstracId
 
 
 # This part for Product DataBase
 
 
-class Product(models.Model):
+class Product(AbstracId ,models.Model):
 
     STATUS = (
         ('True', "فعال"),
@@ -49,7 +28,6 @@ class Product(models.Model):
     title_eng = models.CharField(max_length=150, blank=True, null=True, verbose_name='عنوان انگلیسی')
     keyword = models.CharField(max_length=250, verbose_name='کلمه کلیدی')
     description = models.CharField(max_length=300, verbose_name='توضیحات')
-    # image = models.ImageField(upload_to=upload_image_path, verbose_name='تصویر')
     price = models.IntegerField(verbose_name='قیمت')
     amount = models.IntegerField(verbose_name='تعداد')
     status = models.CharField(max_length=50, choices=STATUS,default= False ,verbose_name='وضعیت')
