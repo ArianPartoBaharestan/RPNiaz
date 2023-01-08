@@ -56,7 +56,6 @@ class Product(AbstracId):
 class ProductImage(AbstracId):
     productt = models.ForeignKey(Product , on_delete= models.CASCADE)
     image = models.ForeignKey(Images , on_delete= models.CASCADE)
-
     class Meta:
         verbose_name = 'تصویر محصول'
         verbose_name_plural = ' تصاویر محصول'
