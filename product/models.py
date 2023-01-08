@@ -6,9 +6,6 @@ from utils.models import AbstracId , Images
 
 # This part for Product DataBase
 
-# class ProductImage(AbstracId ,models.Model):
-#     Product = models.ForeignKey('Product' , on_delete=models.CASCADE)
-#     image = models.ForeignKey(Images , on_delete=models.CASCADE)
 
 class Product(AbstracId ,models.Model):
 
@@ -48,3 +45,8 @@ class Product(AbstracId ,models.Model):
         verbose_name = 'محصول'
         verbose_name_plural = 'محصولات'
 
+
+
+class ProductImage(AbstracId , models.Model):
+    productt = models.ForeignKey(Product , on_delete= models.CASCADE)
+    image = models.ForeignKey(Images , on_delete= models.CASCADE)

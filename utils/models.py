@@ -5,15 +5,18 @@ from datetime import datetime
 from django.utils import timezone
 
 class AbstracId(models.Model):
-    id = models.UUIDField(verbose_name='ایدی' , primary_key=True , editable= False , unique= True , default= uuid4) 
+    id = models.UUIDField(verbose_name='ایدی' , primary_key=True , editable= False , unique= True , default= uuid4().hex) 
     create_at = models.DateTimeField(verbose_name='زمان ایجاد' ,default= timezone.now)
-
-
+    
+    class Meta:
+        abstract = True
 
 
 class Images(AbstracId , models.Model):
     title = models.CharField(max_length=50, blank=True, verbose_name='عنوان')
     image = models.ImageField(blank=True, upload_to=upload_image_path, verbose_name='تصویر')
+
+
     def __str__(self):
         return self.title
 
