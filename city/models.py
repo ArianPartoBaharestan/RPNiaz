@@ -1,7 +1,7 @@
 from django.db import models
-from category.models import BaseAbstractModel
+from utils.models import AbstracId
 
-class Province(BaseAbstractModel):
+class Province(AbstracId):
     name = models.CharField(max_length=50, verbose_name="نام استان", unique=True)
 
     def __str__(self):
@@ -12,9 +12,9 @@ class Province(BaseAbstractModel):
         verbose_name_plural = 'استان ها'
 
 
-class City(models.Model):
+class City(AbstracId):
     name = models.CharField(max_length=50, verbose_name="نام شهر")
-    province = models.ForeignKey(Province, on_delete=models.CASCADE, verbose_name="استان", related_name="cities")
+    Province = models.ForeignKey(Province, on_delete=models.CASCADE, verbose_name="استان", related_name="cities")
 
     def __str__(self):
         return f"{self.name}"
