@@ -11,6 +11,6 @@ class ListImageSerializer(serializers.ModelSerializer):
 class CreateImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Images
-        fields = ('title' , 'image')
+        fields = ('title' , 'image' , 'alt')
 
     

@@ -23,9 +23,14 @@ class BrandDetailSerializer(serializers.ModelSerializer):
 
 
 class ListProductSerializer(serializers.ModelSerializer):
-
-    category = CategoryDetailSerializer() 
-    brand = BrandDetailSerializer()
+    def get_city(self , obj):
+        return {
+            'city' : obj.city.name ,
+            'Province' : obj.city.Province.name
+        }
+    city = serializers.SerializerMethodField(method_name='get_city')
+    Category = CategoryDetailSerializer() 
+    Brand = BrandDetailSerializer()
     class Meta:
         model = Product
         fields = '__all__'
@@ -37,8 +42,9 @@ class CreateProductSerializer(serializers.ModelSerializer):
         exclude = ['seller']
     def create(self, validated_data):
         obj = Product()
-        obj.category = validated_data.get('category')
-        obj.brand = validated_data.get('brand')
+        obj.Category = validated_data.get('Category')
+        obj.Brand = validated_data.get('Brand')
+        obj.city = validated_data.get('city')
         obj.title= validated_data.get('title')
         obj.keyword = validated_data.get('keyword')
         obj.description = validated_data.get('description')
@@ -60,8 +66,8 @@ class DetailProductSerializer(serializers.ModelSerializer):
     def get_seller(self , obj):
         return obj.seller.phone
 
-    category = CategoryDetailSerializer() 
-    brand = BrandDetailSerializer()
+    Category = CategoryDetailSerializer() 
+    Brand = BrandDetailSerializer()
     seller = serializers.SerializerMethodField(method_name='get_seller')
     class Meta:
         model = Product
