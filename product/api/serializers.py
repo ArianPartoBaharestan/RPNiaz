@@ -24,10 +24,13 @@ class BrandDetailSerializer(serializers.ModelSerializer):
 
 class ListProductSerializer(serializers.ModelSerializer):
     def get_city(self , obj):
-        return obj.city.name
+        return {
+            'city' : obj.city.name ,
+            'Province' : obj.city.Province.name
+        }
     city = serializers.SerializerMethodField(method_name='get_city')
-    category = CategoryDetailSerializer() 
-    brand = BrandDetailSerializer()
+    Category = CategoryDetailSerializer() 
+    Brand = BrandDetailSerializer()
     class Meta:
         model = Product
         fields = '__all__'
@@ -63,8 +66,8 @@ class DetailProductSerializer(serializers.ModelSerializer):
     def get_seller(self , obj):
         return obj.seller.phone
 
-    category = CategoryDetailSerializer() 
-    brand = BrandDetailSerializer()
+    Category = CategoryDetailSerializer() 
+    Brand = BrandDetailSerializer()
     seller = serializers.SerializerMethodField(method_name='get_seller')
     class Meta:
         model = Product
