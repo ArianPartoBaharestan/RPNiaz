@@ -6,13 +6,13 @@ from category.models import Category
 
 class AttributeGroup(AbstracId):
     title = models.CharField(max_length=50, verbose_name='عنوان')
-    Category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    Category = models.ForeignKey(Category, on_delete=models.CASCADE,related_name='attribute_group')
 
 
 class Attribute(AbstracId):
     title = models.CharField(max_length=50, verbose_name='عنوان')
     attribute_type = models.CharField(max_length=50, verbose_name='نوع')
-    Attribute_group = models.ForeignKey(AttributeGroup, on_delete=models.CASCADE)
+    Attribute_group = models.ForeignKey(AttributeGroup, on_delete=models.CASCADE,verbose_name='attribute')
 
 
 class AttributeItem(AbstracId):
