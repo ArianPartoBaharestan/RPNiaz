@@ -4,7 +4,7 @@ import os
 from django.urls import reverse
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
-from utils.models import Images
+from utils.models import Images , AbstracId
 
 
 def get_filename_ext(filepath):
@@ -21,7 +21,7 @@ def upload_image_path(instance, filename):
     return f"category/{final_name}"
 
 
-class Category(MPTTModel):
+class Category(AbstracId ,MPTTModel):
     STATUS = (
         ('True', "فعال"),
         ("False", "غیرفعال")
@@ -56,7 +56,7 @@ class Category(MPTTModel):
         return self.objects.filter(status=True)
 
 
-class Brand(models.Model):
+class Brand(AbstracId):
     name = models.CharField(max_length=50, verbose_name='نام برند')
     description = models.CharField(max_length=300, verbose_name='توضیحات')
 

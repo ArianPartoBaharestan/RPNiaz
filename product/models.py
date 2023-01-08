@@ -8,7 +8,7 @@ from django.utils.text import slugify
 # This part for Product DataBase
 
 
-class Product(AbstracId ,models.Model):
+class Product(AbstracId):
 
     STATUS = (
         ('True', "فعال"),
@@ -53,7 +53,7 @@ class Product(AbstracId ,models.Model):
 
 
 
-class ProductImage(AbstracId , models.Model):
+class ProductImage(AbstracId):
     productt = models.ForeignKey(Product , on_delete= models.CASCADE)
     image = models.ForeignKey(Images , on_delete= models.CASCADE)
 
