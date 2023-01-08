@@ -4,6 +4,7 @@ import os
 from django.urls import reverse
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
+from utils.models import Images
 
 
 def get_filename_ext(filepath):
@@ -32,7 +33,7 @@ class Category(MPTTModel):
     keyword = models.CharField(max_length=250, verbose_name='کلمه کلیدی')
     description = models.CharField(max_length=300, verbose_name='توضیحات')
     status = models.CharField(max_length=50, choices=STATUS, verbose_name='وضعیت')
-    image = models.ImageField(blank=True, upload_to=upload_image_path, verbose_name='تصویر')
+    Image = models.ForeignKey(Images, on_delete=models.CASCADE, verbose_name="تصویر", related_name="images")
     slug = models.SlugField(verbose_name='عبارت لینک', blank=True, null=False, unique=True, allow_unicode=True,
                             max_length=200)
     creat_at = models.DateTimeField(auto_now_add=True, verbose_name='ایجاده شده در تاریخ')

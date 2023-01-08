@@ -6,9 +6,10 @@ from django.utils.text import  slugify
 from datetime import datetime
 from utils.api.utils import upload_image_path
 from utils.models import AbstracId
-from mptt.models import MPTTModel
+from mptt.models import MPTTModel 
+from mptt.fields import TreeForeignKey
 
-class Blog(AbstracId ,models.Model):
+class Blog(AbstracId):
 
     owner = models.ForeignKey(User , on_delete=models.CASCADE , related_name= 'blog')
     title = models.CharField(verbose_name= 'موضوع' , max_length = 200)
@@ -28,11 +29,11 @@ class Blog(AbstracId ,models.Model):
         return self.title
 
 
-class Comment(AbstracId , models.Model):
+class Comment(AbstracId , MPTTModel):
     Blog = models.ForeignKey(Blog , on_delete= models.CASCADE , related_name='comments')
     user = models.ForeignKey(User , on_delete= models.CASCADE , related_name= 'comments')
     text = models.TextField(verbose_name='متن')
-    parent = models.ForeignKey('self' , on_delete= models.SET_NULL , related_name= 'replies' , null= True , blank= True)
+    parent = TreeForeignKey('self' , on_delete= models.SET_NULL , related_name= 'replies' , null= True , blank= True)
     published = models.BooleanField(default= False)
 
     def __str__(self) -> str:
