@@ -6,6 +6,6 @@ from .models import Images
 # Image model
 
 class ImageAdmin(admin.ModelAdmin):
-    fields = ('title' , 'image')
+    fields = ('title' , 'image' , 'alt')
     
 admin.site.register(Images , ImageAdmin)

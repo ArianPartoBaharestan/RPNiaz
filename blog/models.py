@@ -6,6 +6,7 @@ from django.utils.text import  slugify
 from datetime import datetime
 from utils.api.utils import upload_image_path
 from utils.models import AbstracId
+from mptt.models import MPTTModel
 
 class Blog(AbstracId ,models.Model):
 
@@ -21,9 +22,6 @@ class Blog(AbstracId ,models.Model):
         if self.slug == None:
             value = self.title + '-' + uuid4().hex
             self.slug = slugify(value=value)
-        if self.publish_at == None:
-            if self.status == "True":
-                self.publish_at = datetime.now()
         super(Blog , self).save()
 
     def __str__(self) -> str:
