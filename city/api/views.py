@@ -9,5 +9,5 @@ class ProvinceView(generics.ListAPIView):
 
 
 class CityView(generics.ListAPIView):
-    queryset = City.objects.prefetch_related('province').all()
+    queryset = City.objects.all()
     serializer_class = CitySerializer
