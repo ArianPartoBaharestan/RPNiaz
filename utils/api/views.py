@@ -17,7 +17,7 @@ class ListImageView(APIView):
 class CreateImageView(CreateAPIView):
     queryset = Images.objects.all()
     serializer_class = CreateImageSerializer
-    permission_classes = (IsAuthenticated , )
+    # permission_classes = (IsAuthenticated , )
 
 class DeleteImageView(APIView):
     def get_object(self , pk):

@@ -1,13 +1,14 @@
 from django.db import models
 from authentication.models import User
-import random
-import os
 from category.models import Category , Brand
-from utils.models import AbstracId
+from utils.models import AbstracId , Images
 
 
 # This part for Product DataBase
 
+# class ProductImage(AbstracId ,models.Model):
+#     Product = models.ForeignKey('Product' , on_delete=models.CASCADE)
+#     image = models.ForeignKey(Images , on_delete=models.CASCADE)
 
 class Product(AbstracId ,models.Model):
 
@@ -33,7 +34,6 @@ class Product(AbstracId ,models.Model):
     status = models.CharField(max_length=50, choices=STATUS,default= False ,verbose_name='وضعیت')
     product_status = models.CharField(max_length = 50 , choices= TYPE ,verbose_name = "کیفیت کالا" )
     slug = models.SlugField(verbose_name='عبارت لینک', null=False, unique=True, allow_unicode=True, max_length=200)
-    creat_at = models.DateTimeField(auto_now_add=True, verbose_name='ایجاده شده در تاریخ')
     update_at = models.DateTimeField(auto_now=True, verbose_name='آپدیت شده در تاریخ')
     change = models.BooleanField(verbose_name = 'قابل معاوضه' , default= False)
     seller = models.ForeignKey(User , on_delete=models.CASCADE  , related_name= 'seller' )

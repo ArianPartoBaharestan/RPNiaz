@@ -10,14 +10,7 @@ from .serializers import( ListBlogSerializer ,
                          CreateCommentSerializer )   
 
 class ListActiveBlogView(generics.ListAPIView):
-    queryset = Blog.objects.filter(status = True)
-    serializer_class = ListBlogSerializer
-    permission_classes = ( IsAuthenticatedOrReadOnly , )
-
-
-
-class ListWaitingBlogView(generics.ListAPIView):
-    queryset = Blog.objects.filter(status = 'False')
+    queryset = Blog.objects.all()
     serializer_class = ListBlogSerializer
     permission_classes = ( IsAuthenticatedOrReadOnly , )
 

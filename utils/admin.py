@@ -5,7 +5,7 @@ from .models import Images
 
 # Image model
 
-# class ProductAdmin(admin.ModelAdmin):
-#     list_filter = ['category']
-
-admin.site.register(Images)
+class ImageAdmin(admin.ModelAdmin):
+    fields = ('title' , 'image')
+    
+admin.site.register(Images , ImageAdmin)
