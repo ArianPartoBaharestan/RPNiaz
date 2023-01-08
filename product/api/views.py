@@ -23,7 +23,7 @@ class ListAllProductsView(ListAPIView):
 class CreateProductView(CreateAPIView):
     queryset = Product.objects.all()
     serializer_class = CreateProductSerializer
-    permission_classes = (IsAuthenticated , )
+    # permission_classes = (IsAuthenticated , )
 
 class DetailProductView(RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()

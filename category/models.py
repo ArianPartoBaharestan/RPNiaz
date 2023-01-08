@@ -2,14 +2,15 @@ from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
 from utils.models import AbstracId, Images
+from mptt.models import MPTTModel
+from mptt.fields import TreeForeignKey
 
-
-class Category(AbstracId):
+class Category(AbstracId , MPTTModel):
     STATUS = (
         ('True', "فعال"),
         ("False", "غیرفعال")
     )
-    parent = models.ForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.SET_NULL,
+    parent = TreeForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.SET_NULL,
                                verbose_name='دسته‌مادر')
     title = models.CharField(max_length=50, verbose_name='عنوان')
     en_title = models.CharField(max_length=50, verbose_name='عنوان انگلیسی')
