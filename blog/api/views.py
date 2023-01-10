@@ -23,11 +23,13 @@ class RetriveUpdateDestroyBlogView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsOwnerOrReadOnly , IsAuthenticated , )
 
 class ListCommentView(APIView):
+    permission_classes = (IsAuthenticated , )
     def get(self , request , pk):
-        queryset = Comment.objects.filter(blog__id = pk)
+        queryset = Comment.objects.filter(Blog__id = pk)
         serializer = ListCommentSerializer(queryset , many = True)
         return Response(data = serializer.data , status= status.HTTP_200_OK)
 
 class CreateCommentView(generics.CreateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CreateCommentSerializer
+    permission_classes = (IsAuthenticated , )
