@@ -65,9 +65,7 @@ class CreateProductSerializer(serializers.ModelSerializer):
 class DetailProductSerializer(serializers.ModelSerializer):
     def get_seller(self , obj):
         return obj.seller.phone
-
-    Category = CategoryDetailSerializer() 
-    Brand = BrandDetailSerializer()
+     
     seller = serializers.SerializerMethodField(method_name='get_seller')
     class Meta:
         model = Product

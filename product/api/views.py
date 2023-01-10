@@ -11,7 +11,7 @@ from django.http import Http404 , HttpResponseNotFound
 class ListActiveProductsView(ListAPIView):
     queryset = Product.objects.filter(status = 'True')
     serializer_class = ListProductSerializer
-    permission_classes = (IsAuthenticated , )
+    # permission_classes = (IsAuthenticated , )
 
 
 class ListAllProductsView(ListAPIView):
@@ -28,7 +28,7 @@ class CreateProductView(CreateAPIView):
 class DetailProductView(RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = DetailProductSerializer
-    permission_classes = (IsOwnerOrReadOnly , IsAuthenticated )
+    # permission_classes = (IsOwnerOrReadOnly , IsAuthenticated )
 
 class ListUserActiveProducts(APIView):
     permission_classes = (IsAuthenticated , )
