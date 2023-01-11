@@ -4,21 +4,15 @@ from rest_framework.views import APIView, Response, status
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from .permissions import IsOwnerOrReadOnly
-from core.error_manager import ErrorHandler
 from .serializers import (ListBlogSerializer,
                           RetriveUpdateDestroyBlogSerializer, ListCommentSerializer,
                           CreateCommentSerializer)
 
 
 class ListActiveBlogView(generics.ListAPIView):
+    queryset = Blog.objects.all()
     serializer_class = ListBlogSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
-
-    def get_queryset(self, *args, **kwargs):
-        queryset = Blog.objects.all()
-        if not queryset.exists():
-            raise ErrorHandler.get_error_exception(404, 'general')
-        return queryset
 
 
 class RetriveUpdateDestroyBlogView(generics.RetrieveUpdateDestroyAPIView):

@@ -15,28 +15,18 @@ from core.error_manager import ErrorHandler
 
 # Product Views
 class ListActiveProductsView(ListAPIView):
+    queryset = Product.objects.filter(status='True')
     serializer_class = ListProductSerializer
     permission_classes = (IsAuthenticated,)
     filter_backends = [DjangoFilterBackend, SearchFilter]
     search_fields = ['title', 'Brand', 'Category']
     filterset_class = ProductFilter
 
-    def get_queryset(self, *args, **kwargs):
-        queryset = Product.objects.filter(status='True')
-        if not queryset.exists():
-            raise ErrorHandler.get_error_exception(404, 'general')
-        return queryset
-
 
 class ListAllProductsView(ListAPIView):
+    queryset = Product.objects.all()
     serializer_class = ListProductSerializer
     permission_classes = (IsAuthenticated,)
-
-    def get_queryset(self, *args, **kwargs):
-        queryset = Product.objects.all()
-        if not queryset.exists():
-            raise ErrorHandler.get_error_exception(404, 'general')
-        return queryset
 
 
 class CreateProductView(CreateAPIView):
