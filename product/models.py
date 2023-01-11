@@ -4,7 +4,7 @@ from category.models import Category , Brand
 from utils.models import AbstracId , Images
 from uuid import uuid4
 from django.utils.text import slugify
-
+from city.models import City
 # This part for Product DataBase
 
 
@@ -21,8 +21,9 @@ class Product(AbstracId):
         ('Old' , 'کهنه') ,
     )
 
-    Category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, verbose_name='دسته')
+    Category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='دسته')
     Brand = models.ForeignKey(Brand, on_delete=models.SET_NULL, blank=True, null=True, verbose_name='برند')
+    city = models.ForeignKey(City , on_delete=models.CASCADE , verbose_name= 'شهر')
     title = models.CharField(max_length=200, verbose_name='عنوان فارسی')
     title_eng = models.CharField(max_length=150, blank=True, null=True, verbose_name='عنوان انگلیسی')
     keyword = models.CharField(max_length=250, verbose_name='کلمه کلیدی')
@@ -62,4 +63,4 @@ class ProductImage(AbstracId , models.Model):
         verbose_name_plural = ' تصاویر محصول'
 
     def __str__(self) -> str:
-        return self.productt
+        return self.productt.title

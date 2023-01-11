@@ -33,10 +33,20 @@ class ListCommentSerializer(serializers.ModelSerializer):
 
 class CreateCommentSerializer(serializers.ModelSerializer):
     def validate(self, data):
-        if data['parent'] not in Comment.objects.filter(blog = data['blog']):
+        if data['parent'] in Comment.objects.filter(Blog = data['Blog']) or  data['parent'] == None:
+            return data
+        else:
             raise serializers.ValidationError('parent most be in blog')
-        return data
         
     class Meta:
         model = Comment
         exclude = ('published' ,)
+
+    def create(self, validated_data):
+        obj = Comment()
+        obj.Blog = validated_data.get('Blog')
+        obj.user = self.context['request'].user
+        obj.text = validated_data.get('text')
+        obj.parent = validated_data.get('parent')
+        obj.save()
+        return obj

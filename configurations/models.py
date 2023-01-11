@@ -13,3 +13,6 @@ class Configure(AbstracId, models.Model):
     class Meta:
         verbose_name = 'تنظیمات سایت'
         verbose_name_plural = 'تنظیمات سایت'
+
+    def __str__(self):
+        return self.web_title

@@ -10,7 +10,7 @@ from .permissions import IsOwner
 
 class ListImageView(APIView):
     def get(self , request , product):
-        queryset = Images.objects.filter(product__title = product)
+        queryset = Images.objects.filter(productimage__productt__slug = product)
         serializer = ListImageSerializer(queryset , many = True)
         return Response(data = serializer.data  , status= status.HTTP_200_OK)
 
