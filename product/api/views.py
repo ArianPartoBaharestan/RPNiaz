@@ -6,18 +6,23 @@ from .permissions import  IsOwnerOrReadOnly
 from rest_framework.views import APIView , Response 
 from rest_framework import status 
 from django.http import Http404 , HttpResponseNotFound
-
+from rest_framework.filters import SearchFilter, OrderingFilter
+from django_filters.rest_framework import DjangoFilterBackend
+from product.filters import ProductFilter
 # Product Views
 class ListActiveProductsView(ListAPIView):
     queryset = Product.objects.filter(status = 'True')
     serializer_class = ListProductSerializer
     permission_classes = (IsAuthenticated , )
-
+    filter_backends = [DjangoFilterBackend, SearchFilter]
+    search_fields = ['title', 'Brand', 'Category']
+    filterset_class = ProductFilter
 
 class ListAllProductsView(ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ListProductSerializer
     permission_classes = (IsAuthenticated , )
+
 
 
 class CreateProductView(CreateAPIView):
