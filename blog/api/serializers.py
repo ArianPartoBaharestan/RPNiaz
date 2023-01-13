@@ -34,10 +34,18 @@ class ListCommentSerializer(serializers.ModelSerializer):
 class CreateCommentSerializer(serializers.ModelSerializer):
     def validate(self, data):
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         if data['parent'] in Comment.objects.filter(Blog = data['Blog']) or  data['parent'] == None:
             return data
         else:
             raise serializers.ValidationError('parent most be in blog')
+=======
+        if data['parent'] in Comment.objects.filter(Blog = data['Blog']) or data['parent'] == None:
+            return data
+        else:
+            raise serializers.ValidationError('parent most be in blog')
+
+>>>>>>> Stashed changes
 =======
         if data['parent'] in Comment.objects.filter(Blog = data['Blog']) or data['parent'] == None:
             return data
@@ -52,6 +60,7 @@ class CreateCommentSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         obj = Comment()
         obj.Blog = validated_data.get('Blog')
         obj.user = self.context['request'].user
@@ -60,11 +69,17 @@ class CreateCommentSerializer(serializers.ModelSerializer):
         obj.save()
         return obj
 =======
+=======
+>>>>>>> Stashed changes
         comment = Comment()
         comment.Blog = validated_data.get('Blog')
         comment.user = self.context['request'].user
         comment.parent = validated_data.get('parent')
         comment.text = validated_data.get('text')
         comment.save()
+<<<<<<< Updated upstream
+        return comment
+>>>>>>> Stashed changes
+=======
         return comment
 >>>>>>> Stashed changes
