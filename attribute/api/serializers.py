@@ -15,7 +15,7 @@ class AttributeGroupSerializer(serializers.ModelSerializer):
 
 
 class AttributeSerializer(serializers.ModelSerializer):
-    # Attribute_group = AttributeGroupSerializer()
+    Attribute_group = AttributeGroupSerializer()
     class Meta:
         model = Attribute
         fields = ('id' , 'title' ,'attribute_type' , 'Attribute_group')
