@@ -53,6 +53,8 @@ class Category(AbstracId, MPTTModel):
 class Brand(AbstracId):
     name = models.CharField(max_length=50, verbose_name='نام برند')
     description = models.CharField(max_length=300, verbose_name='توضیحات')
+    slug = models.SlugField(verbose_name='عبارت لینک', blank=True, null=False, unique=True, allow_unicode=True,
+                            max_length=200)
 
     class Meta:
         verbose_name = 'برند'
@@ -60,3 +62,12 @@ class Brand(AbstracId):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        is_slug = bool(Category.objects.filter(slug=self.name))
+        if self.slug == '':
+            if is_slug:
+                self.slug = slugify(self.name + str(self.id))
+            else:
+                self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
