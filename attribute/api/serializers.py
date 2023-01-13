@@ -15,7 +15,7 @@ class AttributeGroupSerializer(serializers.ModelSerializer):
 
 
 class AttributeSerializer(serializers.ModelSerializer):
-    Attribute_group = AttributeGroupSerializer(many = True)
+    # Attribute_group = AttributeGroupSerializer()
     class Meta:
         model = Attribute
         fields = ('id' , 'title' ,'attribute_type' , 'Attribute_group')
@@ -42,7 +42,7 @@ class CreateProductAttributeSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         product = attrs['Product']
         attribute = attrs['Attribute']
-        if product.id == attribute.id:
+        if product.Category.id == attribute.Attribute_group.Category.id:
             return attrs
         else :
             return serializers.ValidationError('Attribute most be in Category !')

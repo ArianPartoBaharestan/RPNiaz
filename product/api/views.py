@@ -17,7 +17,7 @@ from core.error_manager import ErrorHandler
 class ListActiveProductsView(ListAPIView):
     queryset = Product.objects.filter(status='True')
     serializer_class = ListProductSerializer
-    permission_classes = (IsAuthenticated , )
+    # permission_classes = (IsAuthenticated , )
 
 
 class ListAllProductsView(ListAPIView):

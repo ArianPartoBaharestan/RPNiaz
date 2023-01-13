@@ -28,6 +28,8 @@ class ProductAttributeView(APIView):
     def get(self , request , pk):
         queryset = ProductAttribute.objects.filter(Product__id = pk)
         serializer = ProductAttributeSerializer(queryset , many = True)
+        return Response(data = serializer.data , status= status.HTTP_200_OK)
+
 
 class CreateProductAttributeView(generics.CreateAPIView):
     queryset = Attribute.objects.all()
