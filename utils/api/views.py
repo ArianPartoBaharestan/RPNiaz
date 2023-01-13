@@ -7,32 +7,12 @@ from rest_framework.permissions import IsAuthenticated
 from .permissions import IsOwner
 
 
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 class ListImageView(APIView):
     def get(self , request , product):
         queryset = Images.objects.filter(productimage__productt__slug = product)
         serializer = ListImageSerializer(queryset , many = True)
         return Response(data = serializer.data  , status= status.HTTP_200_OK)
 
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-class ListImageView(ListAPIView):
-        queryset = Images.objects.all()
-        serializer_class = ListImageSerializer
-        permission_classes = (IsAuthenticated ,)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 class CreateImageView(CreateAPIView):
     queryset = Images.objects.all()
     serializer_class = CreateImageSerializer
