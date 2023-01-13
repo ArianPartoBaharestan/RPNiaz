@@ -22,7 +22,6 @@ class ListActiveProductsView(ListAPIView):
     search_fields = ['title', 'Brand', 'Category']
     filterset_class = ProductFilter
 
-
 class ListAllProductsView(ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ListProductSerializer
