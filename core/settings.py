@@ -213,7 +213,7 @@ STATIC_URL = '/static/'
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'static'),)
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directory where uploaded media is saved.
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directory where uploaded media is saved.
 MEDIA_URL = '/media/' # Public URL at the browser
 
 
@@ -221,3 +221,16 @@ MEDIA_URL = '/media/' # Public URL at the browser
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = ['http://rpniaz.ir' , 'https://rpniaz.ir',
+                        'http://www.rpniaz.ir' , 'https://www.rpniaz.ir']
+
+CSRF_ORIGIN_ALLOW_ALL = True
+
+FTP_STORAGE_URL = 'dl.rpniaz.ir'
+FTP_STORAGE_ADDRESS = f'http://{FTP_STORAGE_URL}'
+FTP_STORAGE_IP = '194.147.142.52'
+FTP_STORAGE_USER = 'pz15592'
+FTP_STORAGE_PASS = 'RMrGRe6P'
+FTP_STORAGE_PORT = 21
+FTP_STORAGE_LOCATION = f'ftp://{FTP_STORAGE_USER}:{FTP_STORAGE_PASS}@{FTP_STORAGE_IP}:{FTP_STORAGE_PORT}'
