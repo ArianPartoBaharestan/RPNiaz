@@ -17,10 +17,8 @@ from core.error_manager import ErrorHandler
 class ListActiveProductsView(ListAPIView):
     queryset = Product.objects.filter(status='True')
     serializer_class = ListProductSerializer
-    permission_classes = (IsAuthenticated,)
-    filter_backends = [DjangoFilterBackend, SearchFilter]
-    search_fields = ['title', 'Brand', 'Category']
-    filterset_class = ProductFilter
+    permission_classes = (IsAuthenticated , )
+
 
 class ListAllProductsView(ListAPIView):
     queryset = Product.objects.all()
@@ -37,8 +35,7 @@ class CreateProductView(CreateAPIView):
 class DetailProductView(RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = DetailProductSerializer
-    permission_classes = (IsOwnerOrReadOnly, IsAuthenticated)
-
+    permission_classes = (IsOwnerOrReadOnly , IsAuthenticated )
 
 class ListUserActiveProducts(APIView):
     permission_classes = (IsAuthenticated,)
