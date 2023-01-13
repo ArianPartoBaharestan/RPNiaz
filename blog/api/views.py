@@ -25,6 +25,7 @@ class RetriveUpdateDestroyBlogView(generics.RetrieveUpdateDestroyAPIView):
 class ListCommentView(APIView):
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     permission_classes = (IsAuthenticated,)
 
     def get(self, request, pk):
@@ -33,6 +34,8 @@ class ListCommentView(APIView):
         return Response(data=serializer.data, status=status.HTTP_200_OK)
 
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     permission_classes = (IsAuthenticated ,)
@@ -47,7 +50,11 @@ class CreateCommentView(generics.CreateAPIView):
     serializer_class = CreateCommentSerializer
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     permission_classes = (IsAuthenticated,)
+=======
+    permission_classes = (IsAuthenticated ,)
+>>>>>>> Stashed changes
 =======
     permission_classes = (IsAuthenticated ,)
 >>>>>>> Stashed changes

@@ -10,6 +10,7 @@ from .permissions import IsOwner
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 class ListImageView(APIView):
     def get(self , request , product):
         queryset = Images.objects.filter(productimage__productt__slug = product)
@@ -19,11 +20,16 @@ class ListImageView(APIView):
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 class ListImageView(ListAPIView):
         queryset = Images.objects.all()
         serializer_class = ListImageSerializer
         permission_classes = (IsAuthenticated ,)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
