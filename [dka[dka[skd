@@ -1,0 +1,325 @@
+[33mcommit 0fbe34e6bb4823cbb136eac39fa440183115ab4f[m[33m ([m[1;36mHEAD -> [m[1;32mmain2[m[33m)[m
+Author: rbabaeii <you@example.com>
+Date:   Fri Jan 13 17:19:53 2023 +0330
+
+    attr
+
+[33mcommit 51f58d9aaa904c3a60edd4cd65ff0ea92500cd29[m[33m ([m[1;31morigin/main2[m[33m)[m
+Author: niluws <ns1378@yahoo.com>
+Date:   Wed Jan 11 23:36:36 2023 +0330
+
+    gitignore
+
+[33mcommit 13ba3065c3af79d437097f2e51d70b679a5ee0d5[m
+Author: niluws <ns1378@yahoo.com>
+Date:   Wed Jan 11 23:32:18 2023 +0330
+
+    delete errors
+
+[33mcommit 5ee7718ebe2130dce8302dbcac0f366ac329ed6b[m
+Author: niluws <ns1378@yahoo.com>
+Date:   Wed Jan 11 21:53:18 2023 +0330
+
+    404 errors
+
+[33mcommit 5d0a22c2037657efc09c23eb9d462339f1d0fd46[m
+Merge: 1ddb53e 105c433
+Author: niluws <ns1378@yahoo.com>
+Date:   Wed Jan 11 18:40:19 2023 +0330
+
+    filter
+
+[33mcommit 1ddb53e84eb15628d91f2befb88a0d56dc140236[m
+Merge: 3e7cbc8 7c4cad6
+Author: niluws <ns1378@yahoo.com>
+Date:   Wed Jan 11 13:36:15 2023 +0330
+
+    utils view serializer product
+
+[33mcommit 105c43361daa88760e9570fea2ded4dd31d6459f[m
+Author: niluws <ns1378@yahoo.com>
+Date:   Wed Jan 11 13:27:04 2023 +0330
+
+    d
+
+[33mcommit 3e7cbc860e0a871df3325528a3d9a5ffce10c03a[m
+Author: niluws <ns1378@yahoo.com>
+Date:   Wed Jan 11 13:24:06 2023 +0330
+
+    view & serilizer
+
+[33mcommit 638f11f9ed407d61288165368783e48276677283[m
+Author: niluws <ns1378@yahoo.com>
+Date:   Wed Jan 11 12:40:01 2023 +0330
+
+    debug product serializer & utils views
+
+[33mcommit 8f175ebf3be5633bc887ad9a1198158f23f201cd[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Dec 31 23:13:20 2022 +0330
+
+    v0
+
+[33mcommit 928f815d47fbd551650e03b7e7ff6ddc77ba46af[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Dec 31 23:10:55 2022 +0330
+
+    rezapush
+
+[33mcommit 93b9014d182c88d9678263a5719c954939f1e3e7[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Dec 31 23:10:38 2022 +0330
+
+    rezapush
+
+[33mcommit d156eacd8384647519f437dfa52d632865c6d769[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Dec 31 23:10:00 2022 +0330
+
+    rezapush
+
+[33mcommit f9b8a4d4e96d5cf17b6114ef9bac2587cddc8c08[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Dec 31 23:09:35 2022 +0330
+
+    rezapush
+
+[33mcommit 5a83d4034fd16b9b701cea62f021459e7b4a7163[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Dec 31 22:46:23 2022 +0330
+
+    rezapush
+
+[33mcommit d055838179b6e4e27e0d384bc37cb6ca7b7d5f05[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Dec 31 22:45:40 2022 +0330
+
+    rezapush
+
+[33mcommit d1e87a38b0de35918186ea4a4cd2c54a67a4b2fd[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Dec 31 22:42:05 2022 +0330
+
+    rezapush
+
+[33mcommit 54519d59bfa417cec73b4d4b3e62aecb3c87b622[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Dec 31 22:38:03 2022 +0330
+
+    rezapush
+
+[33mcommit 39cede09586b7520fa068734b164f789a16dadd5[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Dec 31 22:37:38 2022 +0330
+
+    rezapush
+
+[33mcommit a1dd41a9a2228176b88660c6d0e240020fa61b56[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Dec 31 22:36:18 2022 +0330
+
+    rezapush
+
+[33mcommit a2fc44f5534dd92a04c446ee3e799235e0082485[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Dec 31 22:35:35 2022 +0330
+
+    rezapush
+
+[33mcommit 2f1b21bd5e50fe85c8eb685feea55a667e7adfe1[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Dec 31 22:32:19 2022 +0330
+
+    rezapush
+
+[33mcommit 9f23f2aa88c096da96fbafbd2084277251489cbc[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Dec 31 22:32:00 2022 +0330
+
+    rezapush
+
+[33mcommit 945d4f77b1fc4c61f19834d94041fef109a07137[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Dec 31 22:31:11 2022 +0330
+
+    rezapush
+
+[33mcommit ad96b566d792d82a0101f1485f64583e04fbc783[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Dec 31 22:30:42 2022 +0330
+
+    rezapush
+
+[33mcommit ebeff9e329e066743b4412cf71b4cac992b1949c[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Dec 31 22:30:07 2022 +0330
+
+    rezapush
+
+[33mcommit 7c4cad6cb0b3d330265dcb8ae17d01efb2ed791f[m
+Author: rbabaeii <you@example.com>
+Date:   Tue Jan 10 21:12:59 2023 +0330
+
+    fix bug
+
+[33mcommit a2bcd7b6295b7579cb9c03ba9711954dfc17419c[m
+Author: niluws <ns1378@yahoo.com>
+Date:   Tue Jan 10 20:06:16 2023 +0330
+
+    debug2
+
+[33mcommit b02fac07b40ae2997a6dae22cfb57307b7a150bd[m
+Author: rbabaeii <you@example.com>
+Date:   Tue Jan 10 00:38:46 2023 +0330
+
+    fix bugs
+
+[33mcommit 289c6c6a9e3088ebe3b89bfe2e6aaacb186415e8[m
+Author: rbabaeii <you@example.com>
+Date:   Tue Jan 10 00:27:05 2023 +0330
+
+    fix
+
+[33mcommit 2b242afbf9e31da686a6b12fa240f59692402f14[m
+Merge: 879eabd b6a9e97
+Author: niluws <ns1378@yahoo.com>
+Date:   Sun Jan 8 21:35:48 2023 +0330
+
+    debug
+
+[33mcommit 879eabd9d6569df6212d5591cec0194b0e94ec19[m
+Author: niluws <ns1378@yahoo.com>
+Date:   Sun Jan 8 21:33:04 2023 +0330
+
+    debug
+
+[33mcommit b6a9e97dc78ceb1b856e7fff7859fff491aa307c[m
+Author: rbabaeii <you@example.com>
+Date:   Sun Jan 8 21:27:06 2023 +0330
+
+    push
+
+[33mcommit 52c284c6550f2dd8fc2e5787e754a45d9a0e6957[m
+Merge: 5e33367 2c0e639
+Author: niluws <ns1378@yahoo.com>
+Date:   Sun Jan 8 21:11:30 2023 +0330
+
+    debug
+
+[33mcommit 473631dbd2548055219adbc3a069e4d965152ab5[m
+Author: rbabaeii <you@example.com>
+Date:   Sun Jan 8 21:04:55 2023 +0330
+
+    push
+
+[33mcommit b8325e2bc6ac0b39c8c1063eb3c3161159a1ab07[m
+Author: niloofar salemabadi <86254611+niluws@users.noreply.github.com>
+Date:   Sun Jan 8 20:32:39 2023 +0330
+
+    Update views.py
+
+[33mcommit da178929ce50470e6916cd5226c6e19c407b30e5[m
+Author: rbabaeii <you@example.com>
+Date:   Sun Jan 8 19:51:32 2023 +0330
+
+    push
+
+[33mcommit 5e333671ae46a7c4d8ace2becb1d3f406df70827[m
+Author: niluws <ns1378@yahoo.com>
+Date:   Sun Jan 8 19:22:03 2023 +0330
+
+    add all file
+
+[33mcommit 2c0e639ce166bd3651286799ca2070d9d79d6dc5[m[33m ([m[1;31morigin/new_branch[m[33m, [m[1;32mnew_branch[m[33m)[m
+Author: rbabaeii <you@example.com>
+Date:   Sun Jan 8 18:20:22 2023 +0330
+
+    create user product view
+
+[33mcommit 7e24b75b8f6180305f119da0c04c6a8e4272f6e6[m
+Author: rbabaeii <you@example.com>
+Date:   Sun Jan 8 17:44:24 2023 +0330
+
+    product image
+
+[33mcommit 35262aedd9ae7911ff71235f7f2e76d3e7a6676d[m
+Author: niluws <ns1378@yahoo.com>
+Date:   Sun Jan 8 17:41:38 2023 +0330
+
+    Attribute app
+
+[33mcommit 6a644354ddd35d245fa2114582ad8adcf1cc3ec8[m
+Author: rbabaeii <you@example.com>
+Date:   Sun Jan 8 17:40:52 2023 +0330
+
+    product image
+
+[33mcommit a9e20386075c8c98cef7453cbed28b33ba19f6bd[m
+Author: niluws <ns1378@yahoo.com>
+Date:   Sun Jan 8 15:57:41 2023 +0330
+
+    configure app
+
+[33mcommit cfa12fb4d5960024e8f5f932b16f9905b657f871[m
+Author: niluws <ns1378@yahoo.com>
+Date:   Sun Jan 8 15:36:47 2023 +0330
+
+    Attr models
+
+[33mcommit 5c5c48686866b126cbde6f8ba9db7c0d514e2943[m
+Author: niluws <ns1378@yahoo.com>
+Date:   Sun Jan 8 15:36:27 2023 +0330
+
+    Attr models
+
+[33mcommit 703e0b39cee82c38623c41927a7d17e9df5fcacc[m
+Author: rbabaeii <you@example.com>
+Date:   Sun Jan 8 14:55:51 2023 +0330
+
+    product image
+
+[33mcommit f18f971bda522f4dc6ad6a2f295b900c57e42818[m
+Author: rbabaeii <you@example.com>
+Date:   Sun Jan 8 14:15:20 2023 +0330
+
+    product image
+
+[33mcommit 2dd1efebc6bd70e538cfe74db92d441137219cba[m
+Author: rbabaeii <you@example.com>
+Date:   Sun Jan 8 11:55:54 2023 +0330
+
+    change id model
+
+[33mcommit b2056f662f08f710044b5bc717405156ca71ff18[m
+Author: rbabaeii <you@example.com>
+Date:   Sat Jan 7 21:24:07 2023 +0330
+
+    rezapush
+
+[33mcommit 772a0d13b1154a6b35ee8b52683f66447b843db5[m[33m ([m[1;31morigin/niloofar[m[33m, [m[1;32mniloofar[m[33m)[m
+Author: niluws <ns1378@yahoo.com>
+Date:   Sat Jan 7 20:12:40 2023 +0330
+
+    uuid
+
+[33mcommit 64637f4711ffcb0de193980ce24b25c12875078b[m
+Author: niluws <ns1378@yahoo.com>
+Date:   Sat Jan 7 19:48:25 2023 +0330
+
+    api folder
+
+[33mcommit f025f558520e0e3850aabedc1c6196f6f6fc7bcb[m
+Author: niluws <ns1378@yahoo.com>
+Date:   Sat Jan 7 19:32:18 2023 +0330
+
+    uuid
+
+[33mcommit a6e3b1ae2a1ecaf3e367dbf6a23a27211ee4a815[m
+Author: niluws <ns1378@yahoo.com>
+Date:   Sat Jan 7 17:49:14 2023 +0330
+
+    api folder
+
+[33mcommit ee248d119827633086f84c9658d9796a791dfaca[m
+Author: niluws <ns1378@yahoo.com>
+Date:  
