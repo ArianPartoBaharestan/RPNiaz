@@ -40,8 +40,13 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'authentication',
     'landing',
+    'configurations',
     'category',
-    'city'
+    'attribute',
+    'city',
+    'blog',
+    'utils',
+    'product',
 ]
 
 MIDDLEWARE = [

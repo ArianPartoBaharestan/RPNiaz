@@ -1,27 +1,12 @@
-import random
 from django.db import models
 from django.utils.text import slugify
-import os
 from django.urls import reverse
+from utils.models import AbstracId, Images
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
 
 
-def get_filename_ext(filepath):
-    base_name = os.path.basename(filepath)
-    name, ext = os.path.splitext(base_name)
-    return name, ext
-
-
-# برای آپلود عکس و درست کردن آدرسش
-def upload_image_path(instance, filename):
-    new_id = random.randint(1, 999999)
-    name, ext = get_filename_ext(filename)
-    final_name = f"{new_id}-{instance.title}{ext}"
-    return f"category/{final_name}"
-
-
-class Category(MPTTModel):
+class Category(AbstracId, MPTTModel):
     STATUS = (
         ('True', "فعال"),
         ("False", "غیرفعال")
@@ -33,7 +18,7 @@ class Category(MPTTModel):
     keyword = models.CharField(max_length=250, verbose_name='کلمه کلیدی')
     description = models.CharField(max_length=300, verbose_name='توضیحات')
     status = models.CharField(max_length=50, choices=STATUS, verbose_name='وضعیت')
-    image = models.ImageField(blank=True, upload_to=upload_image_path, verbose_name='تصویر')
+    Image = models.ForeignKey(Images, on_delete=models.CASCADE, verbose_name="تصویر", related_name="images")
     slug = models.SlugField(verbose_name='عبارت لینک', blank=True, null=False, unique=True, allow_unicode=True,
                             max_length=200)
     creat_at = models.DateTimeField(auto_now_add=True, verbose_name='ایجاده شده در تاریخ')
@@ -65,10 +50,24 @@ class Category(MPTTModel):
         super().save(*args, **kwargs)
 
 
-class Brand(models.Model):
+class Brand(AbstracId):
     name = models.CharField(max_length=50, verbose_name='نام برند')
     description = models.CharField(max_length=300, verbose_name='توضیحات')
+    slug = models.SlugField(verbose_name='عبارت لینک', blank=True, null=False, unique=True, allow_unicode=True,
+                            max_length=200)
 
     class Meta:
         verbose_name = 'برند'
         verbose_name_plural = 'دسته‌بندی برند'
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        is_slug = bool(Category.objects.filter(slug=self.name))
+        if self.slug == '':
+            if is_slug:
+                self.slug = slugify(self.name + str(self.id))
+            else:
+                self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
