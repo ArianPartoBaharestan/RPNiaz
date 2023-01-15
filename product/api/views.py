@@ -13,11 +13,15 @@ from product.filters import ProductFilter
 from core.error_manager import ErrorHandler
 
 
+
 # Product Views
 class ListActiveProductsView(ListAPIView):
     queryset = Product.objects.filter(status='True')
     serializer_class = ListProductSerializer
-    # permission_classes = (IsAuthenticated , )
+    permission_classes = (IsAuthenticated,)
+    filter_backends = [DjangoFilterBackend, SearchFilter]
+    search_fields = ['title', 'Brand__name', 'Category__title']
+    filterset_class = ProductFilter
 
 
 class ListAllProductsView(ListAPIView):
@@ -35,7 +39,8 @@ class CreateProductView(CreateAPIView):
 class DetailProductView(RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = DetailProductSerializer
-    permission_classes = (IsOwnerOrReadOnly , IsAuthenticated )
+    permission_classes = (IsOwnerOrReadOnly, IsAuthenticated)
+
 
 class ListUserActiveProducts(APIView):
     permission_classes = (IsAuthenticated,)
@@ -43,8 +48,6 @@ class ListUserActiveProducts(APIView):
     def get(self, request):
         queryset = Product.objects.filter(seller=request.user, status=True)
         serilizer = ListProductSerializer(queryset, many=True)
-        if not queryset.exists():
-            raise ErrorHandler.get_error_exception(404, 'general')
         return Response(data=serilizer.data, status=status.HTTP_200_OK)
 
 
@@ -54,6 +57,4 @@ class ListUserWaitingProducts(APIView):
     def get(self, request):
         queryset = Product.objects.filter(seller=request.user, status=False)
         serilizer = ListProductSerializer(queryset, many=True)
-        if not queryset.exists():
-            raise ErrorHandler.get_error_exception(404, 'general')
         return Response(data=serilizer.data, status=status.HTTP_200_OK)
