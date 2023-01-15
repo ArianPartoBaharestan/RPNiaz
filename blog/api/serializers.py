@@ -33,10 +33,11 @@ class ListCommentSerializer(serializers.ModelSerializer):
 
 class CreateCommentSerializer(serializers.ModelSerializer):
     def validate(self, data):
-        if data['parent'] in Comment.objects.filter(Blog = data['Blog']) or  data['parent'] == None:
+        if data['parent'] in Comment.objects.filter(Blog = data['Blog']) or data['parent'] == None:
             return data
         else:
             raise serializers.ValidationError('parent most be in blog')
+
         
     class Meta:
         model = Comment

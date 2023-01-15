@@ -8,5 +8,4 @@ urlpatterns = [
     path('ProductAttribute/attrs/<str:pk>/', views.ProductAttributeView.as_view()),
     path('ProductAttribute/create/',views.CreateProductAttributeView.as_view()),
 
-
 ]

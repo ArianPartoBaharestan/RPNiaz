@@ -54,7 +54,7 @@ class Product(AbstracId):
 
 
 
-class ProductImage(AbstracId , models.Model):
+class ProductImage(AbstracId):
     productt = models.ForeignKey(Product , on_delete= models.CASCADE)
     image = models.ForeignKey(Images , on_delete= models.CASCADE)
 

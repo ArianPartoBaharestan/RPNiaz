@@ -11,7 +11,7 @@ class AbstracId(models.Model):
         abstract = True
 
 
-class Images(AbstracId , models.Model):
+class Images(AbstracId):
     title = models.CharField(max_length=50, blank=False, verbose_name='عنوان')
     image = models.ImageField(blank=False, upload_to=upload_image_path, verbose_name='تصویر')
     alt = models.CharField(verbose_name='seo alt' , max_length=50 , null = True , blank= True)

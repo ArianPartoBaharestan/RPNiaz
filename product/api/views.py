@@ -10,6 +10,8 @@ from django.http import Http404, HttpResponseNotFound
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from product.filters import ProductFilter
+from core.error_manager import ErrorHandler
+
 
 
 # Product Views
