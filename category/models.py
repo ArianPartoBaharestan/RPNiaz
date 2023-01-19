@@ -21,7 +21,7 @@ class Category(AbstracId, MPTTModel):
     Image = models.ForeignKey(Images, on_delete=models.CASCADE, verbose_name="تصویر", related_name="images")
     slug = models.SlugField(verbose_name='عبارت لینک', blank=True, null=False, unique=True, allow_unicode=True,
                             max_length=200)
-    creat_at = models.DateTimeField(auto_now_add=True, verbose_name='ایجاده شده در تاریخ')
+    # creat_at = models.DateTimeField(auto_now_add=True, verbose_name='ایجاده شده در تاریخ')
     update_at = models.DateTimeField(auto_now=True, verbose_name='آپدیت شده در تاریخ')
 
     def __str__(self):
