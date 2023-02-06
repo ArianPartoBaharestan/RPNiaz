@@ -1,7 +1,8 @@
 from rest_framework import serializers
-from product.models import Product 
+from product.models import Product , ProductImage
 from authentication.models import User
 from category.models import Category , Brand
+from utils.models import Images
 
 
 class CategoryDetailSerializer(serializers.ModelSerializer):
@@ -71,4 +72,24 @@ class DetailProductSerializer(serializers.ModelSerializer):
     seller = serializers.SerializerMethodField(method_name='get_seller')
     class Meta:
         model = Product
+        fields = '__all__'
+
+class CreateProductImageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ProductImage
+        fields = '__all__'
+
+class ListProductImageSerializer(serializers.ModelSerializer):
+    def get_product(self , obj):
+        return obj.productt.title
+
+    def get_image(self , obj):
+        if obj.image:
+            return Images.get_url(obj.image.image.url)
+        return None
+    productt = serializers.SerializerMethodField(method_name='get_product')
+    image = serializers.SerializerMethodField(method_name='get_image')
+    class Meta:
+        model = ProductImage
         fields = '__all__'

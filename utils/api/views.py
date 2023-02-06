@@ -7,11 +7,14 @@ from rest_framework.permissions import IsAuthenticated
 from .permissions import IsOwner
 
 
-class ListImageView(APIView):
-    def get(self , request , product):
-        queryset = Images.objects.filter(productimage__productt__slug = product)
-        serializer = ListImageSerializer(queryset , many = True)
-        return Response(data = serializer.data  , status= status.HTTP_200_OK)
+# class ListImageView(APIView):
+#     def get(self , request , product):
+#         queryset = Images.objects.filter(productimage__productt__slug = product)
+#         serializer = ListImageSerializer(queryset , many = True)
+#         return Response(data = serializer.data  , status= status.HTTP_200_OK)
+class ListImageView(ListAPIView):
+    queryset = Images.objects.all()
+    serializer_class = ListImageSerializer
 
 class CreateImageView(CreateAPIView):
     queryset = Images.objects.all()

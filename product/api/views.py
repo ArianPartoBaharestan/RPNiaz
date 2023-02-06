@@ -1,7 +1,7 @@
-from product.models import Product
+from product.models import Product , ProductImage
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveUpdateDestroyAPIView, ListCreateAPIView, \
     DestroyAPIView
-from .serializers import ListProductSerializer, CreateProductSerializer, DetailProductSerializer
+from .serializers import ListProductSerializer, CreateProductSerializer, DetailProductSerializer , CreateProductImageSerializer , ListProductImageSerializer
 from rest_framework.permissions import IsAuthenticated
 from .permissions import IsOwnerOrReadOnly
 from rest_framework.views import APIView, Response
@@ -58,3 +58,19 @@ class ListUserWaitingProducts(APIView):
         queryset = Product.objects.filter(seller=request.user, status=False)
         serilizer = ListProductSerializer(queryset, many=True)
         return Response(data=serilizer.data, status=status.HTTP_200_OK)
+
+
+# product image view
+
+class CreateProductImage(CreateAPIView):
+    permission_classes = (IsAuthenticated,)
+
+    queryset = ProductImage.objects.all()
+    serializer_class = CreateProductImageSerializer
+
+class ListProductImage(APIView):
+    permission_classes = (IsAuthenticated,)
+    def get(self , request , pk):
+        queryset = ProductImage.objects.filter(productt__id = pk)
+        serializer = ListProductImageSerializer(queryset , many = True)
+        return Response(data = serializer.data , status=status.HTTP_200_OK)
