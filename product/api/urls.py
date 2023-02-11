@@ -10,4 +10,6 @@ urlpatterns = [
     path('detail/<str:pk>/' , views.DetailProductView.as_view() , name = "detail"),
     path('user/active-products/' , views.ListUserActiveProducts.as_view()),
     path('user/waiting-products/' , views.ListUserWaitingProducts.as_view()),
+    path('image/create/' , views.CreateProductImage.as_view() ),
+    path('image/list/<str:pk>/' , views.ListProductImage.as_view())
 ]
